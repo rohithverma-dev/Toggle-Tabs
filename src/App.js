@@ -26,7 +26,7 @@ function App() {
      <div className="container">
       <div className="box">
       {all_Tabs.map( (item , index)=>{
-        return <div className={tab.id === item.id ? "title active":"title" } key={item.id} >{item.title}</div>
+        return <div onClick={()=>setTab(item)} className={tab.id === item.id ? "title active":"title" } key={item.id} >{item.title}</div>
       } )}
       </div>
 
