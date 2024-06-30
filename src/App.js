@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const all_Tabs = [
+    {
+      id: 1,
+      title: "tab-1",
+      description: "Tab-1 description",
+    },
+    {
+      id: 2,
+      title: "tab-2",
+      description: "Tab-2 description",
+    },
+    {
+      id: 3,
+      title: "tab-3",
+      description: "Tab-3 description",
+    },
+  ];
+  const [tab, setTab] = useState(all_Tabs[0])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+     <div className="container">
+      <div className="box">
+      {all_Tabs.map( (item , index)=>{
+        return <div className={tab.id === item.id ? "title active":"title" } key={item.id} >{item.title}</div>
+      } )}
+      </div>
+
+      <div className="description"> {tab?.description} </div>
+
+     </div>
+   </>
   );
 }
 
